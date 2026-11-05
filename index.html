@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enactus UFMS Campo Grande</title>
+<meta name="description" content="Time Enactus UFMS Campo Grande: estudantes da UFMS transformando comunidades de Mato Grosso do Sul por meio do empreendedorismo social.">
+<meta property="og:title" content="Enactus UFMS Campo Grande">
+<meta property="og:description" content="Empreendedorismo, Ação, Nós. Projetos de impacto social no Pantanal e no Cerrado.">
+<meta property="og:image" content="assets/time-capa.jpg">
+<meta name="theme-color" content="#1E3D2A">
+<link rel="icon" href="assets/origami-enactus.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<!--
+  ============================================================
+  MOLDE — Landing page Enactus UFMS Campo Grande
+  Tudo que precisa ser revisado/preenchido está marcado com
+  "EDITAR" (comentário) ou com a classe .editar (fica tracejado
+  na tela). Procure por "EDITAR" no arquivo.
+  ============================================================
+-->
+<style>
+:root{
+  /* Identidade do time (manual do membro 2026) */
+  --amarelo:#FFC222;      /* amarelo oficial Enactus */
+  --mel:#E8961B;          /* âmbar PantaMel */
+  --mata:#1E3D2A;         /* verde do uniforme / manual */
+  --mata-2:#2D5A3D;
+  --mata-3:#3F7350;
+  --creme:#F6EFE0;        /* fundo das páginas do manual */
+  --creme-2:#EDE3CC;
+  --papel:#FFFBF2;
+  --tinta:#1B1A16;
+  --tinta-2:#4A4740;
+  --terracota:#C4572C;    /* Cerrado / Zuri */
+  --agua:#7FB3A8;         /* Pantanal */
+  --rosa:#F3D9CF;         /* fundo dos posts PantaMel */
+
+  --f-display:"Bricolage Grotesque", "Arial Black", sans-serif;
+  --f-serif:"Instrument Serif", Georgia, serif;
+  --f-corpo:"Figtree", system-ui, sans-serif;
+
+  --raio:22px;
+  --sombra:0 18px 40px -18px rgba(30,61,42,.45);
+  --largura:1200px;
+  --gutter:clamp(16px,4vw,40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px;overflow-x:clip}
+body{font-family:var(--f-corpo);color:var(--tinta);background:var(--creme);font-size:17px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mel);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--largura);margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* grão de papel */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* placeholder a preencher */
+.editar{outline:2px dashed var(--terracota);outline-offset:3px;border-radius:4px}
+.editar-tag{display:inline-block;font:600 .68rem/1 var(--f-corpo);letter-spacing:.08em;text-transform:uppercase;background:var(--terracota);color:#fff;padding:.3em .55em;border-radius:4px;vertical-align:middle;margin-left:.4em}
+
+/* ---------- tipografia ---------- */
+.rotulo{font:700 .74rem/1 var(--f-corpo);letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.6em;color:var(--mata-3)}
+.rotulo::before{content:"";width:22px;height:22px;background:url(assets/origami-enactus.png) center/contain no-repeat}
+h1,h2,h3{font-family:var(--f-display);line-height:.98;letter-spacing:-.02em;font-weight:800}
+h2{font-size:clamp(2.3rem,5.4vw,4.2rem);margin:.35em 0 .3em}
+h2 em,h1 em,.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);color:var(--tinta-2);max-width:60ch}
+mark{background:linear-gradient(transparent 58%,var(--amarelo) 58% 92%,transparent 92%);color:inherit;padding:0 .08em}
+
+/* ---------- botões ---------- */
+.btn{--bg:var(--amarelo);--fg:var(--mata);display:inline-flex;align-items:center;gap:.55em;font:700 1rem/1 var(--f-corpo);text-decoration:none;
+  background:var(--bg);color:var(--fg);padding:1em 1.5em;border-radius:999px;border:2px solid var(--bg);cursor:pointer;
+  transition:transform .2s cubic-bezier(.3,.7,.4,1.4),box-shadow .2s;box-shadow:0 4px 0 0 var(--mata)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 0 var(--mata)}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 0 var(--mata)}
+.btn--ghost{--bg:transparent;--fg:currentColor;border-color:currentColor;box-shadow:none}
+.btn--ghost:hover{box-shadow:none;background:rgba(255,255,255,.08)}
+.btn--mata{--bg:var(--mata);--fg:var(--creme);box-shadow:0 4px 0 0 var(--amarelo)}
+.btn--mata:hover{box-shadow:0 6px 0 0 var(--amarelo)}
+.seta{transition:transform .2s}.btn:hover .seta{transform:translateX(4px)}
+
+/* ---------- navegação ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.nav.some{transform:translateY(-105%);box-shadow:none}
+.nav.rolou{background:rgba(246,239,224,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(30,61,42,.12)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:1rem}
+.nav__logo img{height:44px;width:auto}
+.nav ul{display:flex;gap:1.6rem;list-style:none;align-items:center}
+.nav ul a{text-decoration:none;font-weight:600;font-size:.95rem;position:relative}
+.nav ul a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:3px;border-radius:3px;background:var(--amarelo);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav ul a:not(.btn):hover::after{transform:scaleX(1)}
+.nav .btn{padding:.75em 1.2em;font-size:.9rem}
+.nav__menu{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.nav__menu span{display:block;height:3px;background:var(--mata);margin:6px 8px;border-radius:2px;transition:.25s}
+@media (max-width:900px){
+  .nav__menu{display:block;order:2;margin-right:-8px}   /* ☰ no canto direito */
+  .nav ul{position:fixed;inset:76px 0 auto;flex-direction:column;background:var(--creme);padding:1.5rem var(--gutter) 2rem;gap:1.2rem;
+    transform:translateY(-120%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),visibility 0s .35s}
+  .nav.aberto ul{transform:none;visibility:visible;transition:transform .35s cubic-bezier(.2,.8,.2,1);box-shadow:0 20px 30px -20px rgba(0,0,0,.3)}
+  .nav.aberto .nav__menu span:nth-child(1){transform:translateY(9px) rotate(45deg)}
+  .nav.aberto .nav__menu span:nth-child(2){opacity:0}
+  .nav.aberto .nav__menu span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
+}
+
+/* ---------- HERO: En · Act · Us ---------- */
+.hero{position:relative;overflow-x:clip}
+.hero__fixo{position:relative;min-height:min(100svh,920px);padding:110px 0 64px;display:flex;align-items:center}
+.hero__fixo::after{/* hexágonos de mel no fundo */content:"";position:absolute;right:-8%;top:8%;width:55%;aspect-ratio:1;opacity:.5;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97'%3E%3Cpath d='M28 0l28 16v32L28 64 0 48V16zM28 64l28 16v32M28 64L0 80v32' fill='none' stroke='%23E8961B' stroke-opacity='.35' stroke-width='1.5'/%3E%3C/svg%3E");
+  -webkit-mask:radial-gradient(closest-side,#000,transparent);mask:radial-gradient(closest-side,#000,transparent)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;position:relative;z-index:1;width:100%}
+.hero__nome{display:grid;gap:.15em;margin:.8rem 0 1.6rem}
+.hero__linha{display:flex;align-items:baseline;gap:.35em;opacity:0;transform:translateY(40px);animation:sobe .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero__linha:nth-child(2){animation-delay:.12s}.hero__linha:nth-child(3){animation-delay:.24s}
+.hero__sigla{font:800 clamp(3.4rem,min(9.5vw,15svh),8.4rem)/.82 var(--f-display);letter-spacing:-.05em;color:var(--mata);min-width:2.1em}
+.hero__linha:nth-child(2) .hero__sigla{color:var(--mel)}
+.hero__palavra{font:italic 400 clamp(1.4rem,min(3vw,4.8svh),2.6rem)/1 var(--f-serif);color:var(--tinta-2)}
+.hero__palavra small{display:block;font:600 .7rem/1.4 var(--f-corpo);letter-spacing:.16em;text-transform:uppercase;font-style:normal;color:var(--mata-3);margin-top:.35em}
+.hero p.lead{opacity:0;animation:sobe .8s .45s forwards}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;opacity:0;animation:sobe .8s .6s forwards}
+.hero__visual{position:relative}
+/* foto recortada em seta (ideia UFPA) com borda amarela.
+   --clip é animado pelo JS: começa fechado no centro e abre até a seta inteira */
+.seta-foto{position:relative;aspect-ratio:1.18/1;--clip:polygon(0% 0%,70% 0%,100% 50%,70% 100%,0% 100%,15% 50%)}
+.seta-foto::before,.seta-foto img{position:absolute;inset:0;clip-path:var(--clip)}
+.seta-foto::before{content:"";background:var(--amarelo);transform:translate(14px,12px)}
+.seta-foto img{width:100%;height:100%;object-fit:cover}
+.hero__capivara{position:absolute;left:-9%;bottom:-8%;width:27%;filter:drop-shadow(0 14px 18px rgba(0,0,0,.25));transform-origin:50% 100%}
+.selo{position:absolute;right:-4%;top:-4%;width:120px;aspect-ratio:1;border-radius:50%;background:var(--mata);color:var(--creme);display:grid;place-items:center;text-align:center;
+  font:700 .7rem/1.25 var(--f-corpo);letter-spacing:.08em;text-transform:uppercase;padding:1rem;animation:gira 22s linear infinite;box-shadow:var(--sombra)}
+.selo b{display:block;font:800 1.9rem/1 var(--f-display);color:var(--amarelo);letter-spacing:-.03em}
+
+/* ---------- ARCO FECHADO → FLECHA SOLTA → FOTO ABRE ----------
+   Sem JS (ou com "reduzir movimento") a foto aparece direto.
+   Com JS, .hero vira um "palco": fica grudado na tela enquanto a
+   animação acompanha o scroll. Ajuste a duração em --palco (computador) e no 140svh (celular). */
+.origami{position:absolute;inset:-4% -6%;width:112%;height:108%;overflow:visible;pointer-events:none;display:none}
+.hero__dica{position:absolute;left:50%;bottom:-2.6rem;translate:-50% 0;white-space:nowrap;font:700 .8rem/1 var(--f-corpo);letter-spacing:.06em;
+  color:var(--mata);display:none;align-items:center;gap:.5em}
+.hero__dica i{font-style:normal;display:inline-block;animation:quica 1.4s ease-in-out infinite}
+@keyframes quica{50%{transform:translateY(5px)}}
+.js-arco .origami{display:block}
+.js-arco .hero__dica{display:flex}
+@media (min-width:901px){
+  .js-arco .hero{--palco:130vh}
+  .js-arco .hero::after{content:"";display:block;height:var(--palco)}  /* espaço de scroll do palco */
+  .js-arco .hero__fixo{position:sticky;top:0}
+}
+/* telas baixas (notebook): o hero inteiro precisa caber abaixo do menu */
+@media (min-width:901px){
+  .hero__visual{max-width:calc((100svh - 190px)*1.18);margin-left:auto;width:100%}
+}
+@media (min-width:901px) and (max-height:780px){
+  .hero__fixo{padding:96px 0 32px}
+  .hero__sigla{font-size:clamp(3rem,min(9.5vw,12svh),8.4rem)}
+  .hero__palavra{font-size:clamp(1.3rem,min(3vw,4.2svh),2.6rem)}
+  .hero__nome{margin:.5rem 0 1rem}
+  .hero p.lead{font-size:1rem}
+  .hero__ctas{margin-top:1.2rem}
+  .selo{width:104px;top:-2%;font-size:.6rem;padding:.7rem}.selo b{font-size:1.6rem}
+}
+@keyframes sobe{to{opacity:1;transform:none}}
+@keyframes gira{to{rotate:360deg}}
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero__fixo{min-height:0;padding-bottom:40px}
+  .hero__palco{--lado:min(560px,calc(100vw - 32px));--alto:calc(var(--lado)/1.18)}
+  .hero__visual{max-width:560px;margin:1rem auto 0;width:100%}
+  .js-arco .hero__palco{height:calc(var(--alto) + 140svh + 3rem)}
+  .js-arco .hero__visual{position:sticky;top:calc(50svh - var(--alto)/2)}
+}
+@media (prefers-reduced-motion:reduce){
+  .js-arco .hero::after{display:none}.js-arco .hero__fixo{position:relative}
+  .js-arco .hero__palco{height:auto}.js-arco .hero__visual{position:relative;top:0}
+  .js-arco .origami,.js-arco .hero__dica{display:none}
+}
+
+/* ---------- divisores ondulados (ideia UFMG) ---------- */
+.onda{display:block;width:100%;height:clamp(40px,6vw,90px);margin:-1px 0}
+.onda path{fill:var(--cor)}
+
+/* ---------- marquee 3P ---------- */
+.marquee{background:var(--mata);color:var(--creme);overflow:hidden;padding:1.1rem 0;border-block:3px solid var(--amarelo)}
+.marquee__trilho{display:flex;gap:2.5rem;width:max-content;animation:corre 32s linear infinite;font:800 clamp(1.6rem,3.5vw,2.6rem)/1 var(--f-display);text-transform:uppercase;letter-spacing:-.01em}
+.marquee__trilho span{display:inline-flex;align-items:center;gap:2.5rem}
+.marquee__trilho i{font:italic 400 1.1em/1 var(--f-serif);text-transform:none;color:var(--amarelo)}
+.marquee__trilho img{width:.9em;height:.9em}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* ---------- seções base ---------- */
+section{position:relative}
+.secao{padding:clamp(70px,10vw,130px) 0}
+.secao--mata{background:var(--mata);color:var(--creme)}
+.secao--mata .lead{color:rgba(246,239,224,.8)}
+.secao--mata .rotulo{color:var(--amarelo)}
+.secao--papel{background:var(--papel)}
+.cab{display:grid;grid-template-columns:1fr 1fr;gap:2rem 4rem;align-items:end;margin-bottom:3.5rem}
+@media (max-width:800px){.cab{grid-template-columns:1fr}}
+
+/* revelar no scroll */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i,0)*90ms)}
+.rv.rv--esq{transform:translateX(-40px)}.rv.rv--dir{transform:translateX(40px)}.rv.rv--escala{transform:scale(.92)}
+.rv.visivel{opacity:1;transform:none}
+
+/* ---------- O que é Enactus ---------- */
+.sobre{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.sobre__arco{position:relative;background:var(--mata);border-radius:var(--raio);padding:2.2rem 2.2rem 170px;color:var(--creme);overflow:hidden}
+.sobre__arco blockquote{font:italic 400 clamp(1.6rem,2.8vw,2.3rem)/1.15 var(--f-serif);position:relative;z-index:1}
+.sobre__arco cite{display:block;margin-top:1rem;font:600 .8rem/1.4 var(--f-corpo);letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--amarelo)}
+.sobre__arco p{margin-top:1.2rem;font-size:.95rem;opacity:.85;position:relative;z-index:1}
+.sobre__arco img{position:absolute;right:18px;bottom:-26px;width:170px;opacity:.95;transform:rotate(-8deg)}
+.globo{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(30,61,42,.15);border-radius:var(--raio);overflow:hidden;margin-top:2rem}
+.globo div{background:var(--creme);padding:1.3rem 1.2rem}
+.globo b{display:block;font:800 2.1rem/1 var(--f-display);color:var(--mata);letter-spacing:-.03em}
+.globo span{font-size:.85rem;color:var(--tinta-2)}
+.pilares{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.6rem}
+.pilares span{border:2px solid var(--mata);border-radius:999px;padding:.4em 1em;font-weight:700;font-size:.88rem}
+@media (max-width:900px){.sobre{grid-template-columns:1fr;gap:2.5rem}}
+
+/* ---------- Projetos ---------- */
+.projetos{display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem}
+.proj{grid-column:span 5;position:relative;border-radius:var(--raio);overflow:hidden;background:var(--papel);color:var(--tinta);display:flex;flex-direction:column;
+  box-shadow:var(--sombra);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.proj:hover{transform:translateY(-6px) rotate(-.4deg)}
+.proj--destaque{grid-column:span 7;grid-row:span 2}
+.proj__img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--cor,var(--mel))}
+.proj--destaque .proj__img{aspect-ratio:auto;flex:1;min-height:340px}
+.proj__img img.foto{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.proj:hover .proj__img img.foto{transform:scale(1.05)}
+.proj__img .logo{position:absolute;left:1rem;bottom:1rem;width:78px;height:78px;border-radius:50%;background:var(--papel);padding:10px;object-fit:contain;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.proj__arte{position:absolute;inset:0;display:grid;place-items:center}
+.proj__arte img{width:55%;max-height:70%;object-fit:contain}
+.proj__corpo{padding:1.4rem 1.5rem 1.6rem}
+.proj__tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.7rem}
+.proj__tags span{font:700 .68rem/1 var(--f-corpo);letter-spacing:.08em;text-transform:uppercase;padding:.45em .7em;border-radius:6px;background:var(--creme-2);color:var(--mata)}
+.proj__tags .ods{background:var(--mata);color:var(--amarelo)}
+.proj h3{font-size:1.7rem;margin-bottom:.4rem}
+.proj p{font-size:.95rem;color:var(--tinta-2)}
+.proj a.mais{display:inline-flex;gap:.4em;margin-top:1rem;font-weight:700;text-decoration:none;color:var(--mata);border-bottom:2px solid var(--amarelo)}
+@media (max-width:1000px){.proj,.proj--destaque{grid-column:span 6;grid-row:auto}.proj--destaque .proj__img{min-height:260px}}
+@media (max-width:640px){.proj,.proj--destaque{grid-column:1/-1}}
+.ja-atuamos{margin-top:3rem;display:flex;gap:1.2rem;flex-wrap:wrap;align-items:center;padding-top:2rem;border-top:2px dashed rgba(246,239,224,.25)}
+.ja-atuamos strong{font:italic 400 1.5rem/1 var(--f-serif);margin-right:.5rem}
+.chip-proj{display:flex;align-items:center;gap:.8rem;background:rgba(246,239,224,.08);border:1px solid rgba(246,239,224,.2);border-radius:999px;padding:.4rem 1.1rem .4rem .4rem}
+.chip-proj img{width:44px;height:44px;border-radius:50%;background:var(--papel);object-fit:contain;padding:5px}
+.chip-proj small{display:block;opacity:.7;font-size:.78rem}
+
+/* ---------- Impacto (contadores) ---------- */
+.impacto{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.num{padding:1.5rem 1.6rem;border-left:4px solid var(--amarelo)}
+.num b{display:flex;align-items:baseline;font:800 clamp(3.2rem,6vw,5rem)/.9 var(--f-display);letter-spacing:-.05em;color:var(--mata)}
+.num b sup{font-size:.42em;color:var(--mel);margin-left:.06em;top:0}
+.num > span{display:block;margin-top:.7rem;font-weight:600;font-size:.92rem;color:var(--tinta-2);max-width:20ch}
+@media (max-width:900px){.impacto{grid-template-columns:repeat(2,1fr);row-gap:2rem}}
+
+/* ---------- Conquistas / linha do tempo ---------- */
+.tempo{display:grid;grid-template-columns:repeat(6,minmax(170px,1fr));gap:0;position:relative;overflow-x:auto;padding-bottom:1rem;scroll-snap-type:x mandatory}
+.tempo::before{content:"";position:absolute;left:0;right:0;top:27px;height:3px;background:repeating-linear-gradient(90deg,var(--mata) 0 10px,transparent 10px 18px)}
+.marco{position:relative;padding:0 1.2rem 0 0;scroll-snap-align:start}
+.marco__ponto{width:56px;height:56px;border-radius:50%;background:var(--creme);border:3px solid var(--mata);display:grid;place-items:center;position:relative;z-index:1;font:800 .8rem/1 var(--f-display)}
+.marco--ouro .marco__ponto{background:var(--amarelo);border-color:var(--amarelo);box-shadow:0 0 0 6px rgba(255,194,34,.25)}
+.marco h4{font:800 1.25rem/1.1 var(--f-display);margin:1rem 0 .4rem}
+.marco p{font-size:.88rem;color:var(--tinta-2)}
+.premios{display:flex;gap:1rem;flex-wrap:wrap;margin-top:3rem}
+.premio{flex:1 1 240px;display:flex;gap:1rem;align-items:center;background:var(--papel);border-radius:var(--raio);padding:1.1rem 1.3rem;border:2px solid var(--creme-2)}
+.premio__icone{flex:none;width:52px;height:52px;border-radius:14px;background:var(--mata);display:grid;place-items:center;color:var(--amarelo);font-size:1.5rem}
+.premio b{font-family:var(--f-display);font-size:1.05rem;display:block;line-height:1.15}
+.premio small{color:var(--tinta-2)}
+
+/* ---------- Diretorias (ideia UFMG: painéis com linhas orgânicas) ---------- */
+.diretorias{display:grid;grid-template-columns:repeat(4,1fr);border-radius:var(--raio);overflow:hidden;min-height:340px}
+.dir{position:relative;background:var(--c);color:#fff;padding:1.3rem;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;transition:flex .4s}
+.dir svg{position:absolute;inset:-20% -40% auto auto;width:180%;opacity:.55;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.dir:hover svg{transform:rotate(18deg) scale(1.1)}
+.dir h4{position:relative;font:800 1.15rem/1.05 var(--f-display);background:var(--papel);color:var(--tinta);padding:.5rem .7rem;border-radius:8px;align-self:flex-start}
+.dir p{position:relative;font-size:.82rem;margin-top:.6rem;line-height:1.4;opacity:.95}
+@media (max-width:1000px){.diretorias{grid-template-columns:repeat(2,1fr)}.dir{min-height:220px}}
+@media (max-width:560px){.diretorias{grid-template-columns:1fr 1fr}}
+.organiza{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.4rem}
+.organiza div{background:rgba(246,239,224,.07);border:1px solid rgba(246,239,224,.18);border-radius:var(--raio);padding:1.4rem}
+.organiza h4{font:800 1.2rem/1.1 var(--f-display);color:var(--amarelo);margin-bottom:.4rem}
+.organiza p{font-size:.93rem;opacity:.85}
+@media (max-width:700px){.organiza{grid-template-columns:1fr}}
+
+/* ---------- Depoimentos ---------- */
+.depo{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1.4rem;align-items:start}
+.depo figure{background:var(--papel);border-radius:var(--raio);padding:1.8rem;position:relative;box-shadow:var(--sombra)}
+.depo figure:first-child{background:var(--amarelo);grid-row:span 2}
+.depo figure::before{content:"“";position:absolute;top:-.15em;right:.35em;font:400 7rem/1 var(--f-serif);color:var(--mel);opacity:.55}
+.depo figure:first-child::before{color:var(--mata)}
+.depo blockquote{font:italic 400 1.3rem/1.35 var(--f-serif)}
+.depo figure:first-child blockquote{font-size:clamp(1.5rem,2.4vw,2rem)}
+.depo figcaption{display:flex;align-items:center;gap:.8rem;margin-top:1.4rem}
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--mata);color:var(--amarelo);display:grid;place-items:center;font:800 1rem var(--f-display);flex:none}
+.depo figcaption b{display:block;font-size:.95rem}.depo figcaption small{color:var(--tinta-2)}
+@media (max-width:900px){.depo{grid-template-columns:1fr}.depo figure:first-child{grid-row:auto}}
+
+/* ---------- Parceiros ---------- */
+.parceiros{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.parc{flex:1 1 150px;max-width:220px;height:96px;display:grid;place-items:center;background:var(--papel);border-radius:16px;border:2px solid var(--creme-2);padding:1rem;text-align:center;
+  font:800 1.05rem/1.1 var(--f-display);color:var(--mata);transition:transform .25s,border-color .25s}
+.parc:hover{transform:translateY(-3px);border-color:var(--amarelo)}
+.parc img{max-height:56px;width:auto;object-fit:contain}
+.parc small{display:block;font:500 .7rem var(--f-corpo);color:var(--tinta-2);margin-top:.2rem}
+
+/* ---------- Seja Enactor (lacuna dos 4 sites) ---------- */
+.recruta{background:var(--amarelo);border-radius:calc(var(--raio)*1.6);padding:clamp(2rem,5vw,4rem);display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;position:relative;overflow:hidden}
+.recruta h2{color:var(--mata)}
+.recruta .lead{color:var(--mata)}
+.passos{list-style:none;counter-reset:p;display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;margin:2rem 0}
+.passos li{counter-increment:p;background:rgba(255,251,242,.6);border-radius:14px;padding:1rem;font-weight:700;font-size:.9rem;line-height:1.3}
+.passos li::before{content:"0" counter(p);display:block;font:800 1.6rem/1 var(--f-display);color:var(--mel);margin-bottom:.4rem}
+.passos li small{display:block;font-weight:500;color:var(--tinta-2);margin-top:.2rem}
+.recruta__capi{position:relative;justify-self:center;width:min(320px,100%)}
+.recruta__capi img{width:100%;filter:drop-shadow(0 20px 20px rgba(0,0,0,.2));transform-origin:bottom center;animation:balanca 4s ease-in-out infinite}
+.recruta__data{position:absolute;top:6%;left:-12%;background:var(--mata);color:var(--creme);border-radius:14px;padding:.7rem 1rem;font-weight:700;font-size:.85rem;rotate:-6deg;box-shadow:var(--sombra)}
+.recruta__data b{display:block;color:var(--amarelo);font:800 1.3rem/1.1 var(--f-display)}
+@keyframes balanca{50%{transform:rotate(3deg)}}
+@media (max-width:900px){.recruta{grid-template-columns:1fr}.passos{grid-template-columns:1fr 1fr}.recruta__data{left:0}}
+
+/* ---------- Newsletter (inline — melhoria sobre a UFPA) ---------- */
+.news{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
+.news__capi{width:clamp(160px,22vw,260px)}
+.news__capi img{filter:drop-shadow(0 18px 20px rgba(0,0,0,.35))}
+.news h2{color:var(--creme)}
+.news__promessa{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin:1rem 0 1.6rem;list-style:none;font-size:.95rem}
+.news__promessa li::before{content:"✦ ";color:var(--amarelo)}
+.form{display:grid;grid-template-columns:1fr 1.3fr auto;gap:.7rem;max-width:760px}
+.form input[type=text],.form input[type=email]{font:500 1rem var(--f-corpo);padding:1rem 1.2rem;border-radius:999px;border:2px solid rgba(246,239,224,.3);background:rgba(246,239,224,.08);color:var(--creme);min-width:0}
+.form input::placeholder{color:rgba(246,239,224,.55)}
+.form input:focus{outline:none;border-color:var(--amarelo);background:rgba(246,239,224,.14)}
+.form .btn{box-shadow:0 4px 0 0 var(--mel)}
+.lgpd{grid-column:1/-1;display:flex;gap:.6rem;align-items:flex-start;font-size:.82rem;opacity:.85;margin-top:.3rem}
+.lgpd input{accent-color:var(--amarelo);width:18px;height:18px;margin-top:2px;flex:none}
+.form__ok{display:none;grid-column:1/-1;background:var(--amarelo);color:var(--mata);border-radius:14px;padding:1rem 1.2rem;font-weight:700}
+.form.enviado .form__ok{display:block}
+.form.enviado > :not(.form__ok){display:none}
+.hp{position:absolute;left:-9999px}
+@media (max-width:800px){.news{grid-template-columns:1fr;text-align:left}.news__capi{width:150px}.form{grid-template-columns:1fr}}
+
+/* ---------- Rodapé ---------- */
+.rodape{background:var(--tinta);color:var(--creme);padding:4rem 0 2rem}
+.rodape__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2.5rem}
+.rodape__frase{font:italic 400 1.5rem/1.25 var(--f-serif);margin-top:1rem;max-width:26ch}
+.rodape h5{font:700 .74rem/1 var(--f-corpo);letter-spacing:.18em;text-transform:uppercase;color:var(--amarelo);margin-bottom:1rem}
+.rodape ul{list-style:none;display:grid;gap:.55rem;font-size:.93rem}
+.rodape a{text-decoration:none;opacity:.85}.rodape a:hover{opacity:1;color:var(--amarelo)}
+.rodape__logo{background:var(--creme);border-radius:14px;padding:.6rem .9rem;display:inline-block}
+.rodape__logo img{height:46px;width:auto}
+.rodape__base{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(246,239,224,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.82rem;opacity:.65}
+@media (max-width:900px){.rodape__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.rodape__grid{grid-template-columns:1fr}}
+
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  .rv,.rv.rv--esq,.rv.rv--dir,.rv.rv--escala{opacity:1;transform:none}
+  .marquee__trilho{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ======================= NAV ======================= -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="nav__logo" href="#topo" aria-label="Enactus UFMS Campo Grande, início"><img src="assets/logo-enactus-ufms-cg.png" alt="Enactus UFMS Campo Grande"></a>
+    <button class="nav__menu" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <nav aria-label="Principal">
+      <ul id="menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#impacto">Impacto</a></li>
+        <li><a href="#time">O time</a></li>
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a class="btn" href="#seja-enactor">Seja Enactor <span class="seta">→</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main id="topo">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+ <div class="hero__fixo">
+  <div class="wrap">
+    <div>
+      <span class="rotulo">Time Enactus UFMS · Campo Grande</span>
+      <h1 class="hero__nome" aria-label="Enactus: Empreendedorismo, Ação, Nós">
+        <span class="hero__linha" aria-hidden="true"><span class="hero__sigla">En</span><span class="hero__palavra">empreendedorismo<small>Entrepreneurial</small></span></span>
+        <span class="hero__linha" aria-hidden="true"><span class="hero__sigla">Act</span><span class="hero__palavra">ação<small>Action</small></span></span>
+        <span class="hero__linha" aria-hidden="true"><span class="hero__sigla">Us</span><span class="hero__palavra">nós<small>Us</small></span></span>
+      </h1>
+      <p class="lead">Somos estudantes de vários cursos da UFMS criando <mark>negócios sociais junto com comunidades</mark> do Pantanal e do Cerrado: do mel ribeirinho aos frutos nativos quilombolas.</p>
+      <div class="hero__ctas">
+        <a class="btn" href="#seja-enactor">Quero ser Enactor <span class="seta">→</span></a>
+        <a class="btn btn--ghost" href="#parceiros">Seja parceiro</a>
+      </div>
+    </div>
+    <div class="hero__palco">
+    <div class="hero__visual">
+      <div class="seta-foto">
+        <!-- EDITAR: foto principal do time (ideal ≥1400px de largura, pessoas no centro) -->
+        <img src="assets/time-capa.jpg" alt="Membros do Time Enactus UFMS Campo Grande segurando a bandeira do time">
+      </div>
+      <img class="hero__capivara" src="assets/capivara-polo.png" alt="" aria-hidden="true">
+      <div class="selo" aria-label="Semifinalista ENEB 2025 e 2026"><span><b>Top 16</b>ENEB<br>2025 · 2026</span></div>
+
+      <!-- Símbolo Enactus: arco + flecha. "Uma ideia sem ação é como um arco sem flecha."
+           Rolando: a corda é puxada, a flecha é solta e o origami se desdobra na foto. -->
+      <svg class="origami" viewBox="0 0 256 256" aria-hidden="true">
+        <g class="o-tudo">
+          <g class="o-asa"><polygon points="33,157 96,155 110,238" fill="#FFAE2E"/><polygon points="96,155 110,158 110,238" fill="#D9870C"/></g>
+          <g class="o-cauda"><polygon points="215,125 248,155 190,158" fill="#FFAE2E"/><polygon points="215,125 199,147 190,158" fill="#D9870C"/></g>
+          <g class="o-corpo"><polygon points="110,22 215,125 190,158 110,238" fill="#FFC64A"/><polygon points="110,22 215,125 150,118" fill="#FFD36E" opacity=".7"/></g>
+          <g class="o-arco">
+            <path class="o-madeira" d="M110 26 Q150 130 110 234" fill="none" stroke="#7A3F10" stroke-width="8" stroke-linecap="round"/>
+            <path class="o-madeira" d="M110 26 Q150 130 110 234" fill="none" stroke="#B8692A" stroke-width="2.6" stroke-linecap="round"/>
+            <circle cx="110" cy="26" r="5.5" fill="#7A3F10"/><circle cx="110" cy="234" r="5.5" fill="#7A3F10"/>
+            <path class="o-corda" d="M110 26 L104 130 L110 234" fill="none" stroke="#1B1A16" stroke-width="1.8" stroke-linejoin="round"/>
+          </g>
+          <g class="o-flecha">
+            <line x1="104" y1="130" x2="246" y2="130" stroke="#1B1A16" stroke-width="3.4" stroke-linecap="round"/>
+            <polygon points="262,130 240,121 240,139" fill="#1B1A16"/>
+            <g fill="none" stroke="#C4572C" stroke-width="3" stroke-linecap="round">
+              <path d="M108 130 L99 121 M108 130 L99 139"/><path d="M116 130 L107 121 M116 130 L107 139"/><path d="M124 130 L115 121 M124 130 L115 139"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <span class="hero__dica">role para soltar a flecha <i>↓</i></span>
+    </div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- marquee dos 3 pilares -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__trilho">
+    <span>Pessoas <img src="assets/origami-enactus.png" alt=""> <i>Planeta</i> <img src="assets/origami-enactus.png" alt=""> Prosperidade <img src="assets/origami-enactus.png" alt=""> <i>uma ideia sem ação é como um arco sem flecha</i> <img src="assets/origami-enactus.png" alt=""></span>
+    <span>Pessoas <img src="assets/origami-enactus.png" alt=""> <i>Planeta</i> <img src="assets/origami-enactus.png" alt=""> Prosperidade <img src="assets/origami-enactus.png" alt=""> <i>uma ideia sem ação é como um arco sem flecha</i> <img src="assets/origami-enactus.png" alt=""></span>
+  </div>
+</div>
+
+<!-- ======================= SOBRE ======================= -->
+<section class="secao" id="sobre">
+  <div class="wrap sobre">
+    <div>
+      <span class="rotulo rv">O que é Enactus</span>
+      <h2 class="rv" style="--i:1">Conhecimento de sala de aula <em>virando impacto</em> fora dela.</h2>
+      <p class="lead rv" style="--i:2">A Enactus é uma organização internacional sem fins lucrativos que incentiva universitários a criarem projetos de empreendedorismo social. Nosso time faz parte da <strong>Enactus Brasil</strong> e de um programa de extensão da UFMS que reúne <strong>10 times</strong>, um em cada câmpus.</p>
+      <div class="pilares rv" style="--i:3" aria-label="Valores do time"><span>Integridade</span><span>Paixão</span><span>Inovação</span><span>Colaboração</span><span>Autonomia</span></div>
+      <div class="globo rv" style="--i:4">
+        <!-- EDITAR: confira os números atuais da rede em enactus.org -->
+        <div><b>30+</b><span>países na rede global</span></div>
+        <div><b>20</b><span>estados brasileiros + DF</span></div>
+        <div><b>10</b><span>times Enactus na UFMS</span></div>
+        <div><b>2015</b><span>primeiras ações na UFMS</span></div>
+      </div>
+    </div>
+    <div class="sobre__arco rv rv--dir" style="--i:2">
+      <blockquote>“Uma ideia sem ação é como um arco sem flecha.”</blockquote>
+      <cite>Martin Luther King · inspiração do símbolo Enactus</cite>
+      <p>O origami amarelo é um arco e uma flecha: juntos transformam ideia em ação; separados, nenhum tem utilidade. Nossa <strong>missão</strong> é dar aos membros a chance de usar o que aprendem em sala para transformar comunidades, gerando impacto em <em class="serif">pessoas, planeta e prosperidade</em>.</p>
+      <img src="assets/capivara-placa.png" alt="" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROJETOS ======================= -->
+<svg class="onda" style="--cor:var(--mata)" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C180 20 360 10 560 40s420 50 600 20 220-50 280-40v70H0z"/></svg>
+<section class="secao secao--mata" id="projetos" style="padding-top:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <span class="rotulo rv">Projetos ativos</span>
+        <h2 class="rv" style="--i:1">Negócios que nascem <em>com</em> a comunidade, não <em>para</em> ela.</h2>
+      </div>
+      <p class="lead rv" style="--i:2">Cada projeto tem responsáveis de Finanças, Marketing, Gestão e Inovação e Parcerias, além dos membros que vão a campo. A comunidade participa de todas as etapas.</p>
+    </div>
+
+    <div class="projetos">
+      <!-- PantaMel: destaque -->
+      <article class="proj proj--destaque rv rv--escala">
+        <div class="proj__img">
+          <img class="foto" src="assets/pantamel-apicultor.jpg" alt="Apicultor da comunidade Flor de Camalote segurando um quadro de abelhas" loading="lazy">
+          <img class="logo" src="assets/logo-pantamel.png" alt="Logo PantaMel">
+        </div>
+        <div class="proj__corpo">
+          <div class="proj__tags"><span>Pantanal · Miranda</span><span class="ods">ODS 8</span><span class="ods">ODS 12</span><span class="ods">ODS 15</span></div>
+          <h3>PantaMel</h3>
+          <p>As queimadas de 2020 destruíram as caixas de abelhas dos apicultores ribeirinhos de Miranda. O PantaMel agrega valor ao mel da comunidade <strong>Flor de Camalote</strong>, que antes era vendido a atravessadores abaixo do preço de mercado.</p>
+          <a class="mais" href="https://www.instagram.com/projetopantamel/" target="_blank" rel="noopener">@projetopantamel →</a>
+        </div>
+      </article>
+
+      <article class="proj rv rv--escala" style="--i:1">
+        <div class="proj__img" style="--cor:#F2E2C4">
+          <div class="proj__arte"><img src="assets/logo-zuri.png" alt="Logo Zuri"></div>
+        </div>
+        <div class="proj__corpo">
+          <div class="proj__tags"><span>Quilombo Chácara do Buriti</span><span class="ods">ODS 5</span></div>
+          <h3>Zuri</h3>
+          <p>Massas prontas para bolo com frutos do Cerrado (jatobá, baru, bocaiúva), produzidas por mulheres quilombolas. Nasceu no 1º Hackathon da Fundação Cargill (2025). <em class="serif">Colhemos mais do que frutos.</em></p>
+          <a class="mais" href="https://www.instagram.com/projetozuri/" target="_blank" rel="noopener">@projetozuri →</a>
+        </div>
+      </article>
+
+      <article class="proj rv rv--escala" style="--i:2">
+        <div class="proj__img" style="--cor:#DCE6CF">
+          <div class="proj__arte"><img src="assets/logo-elas-do-cerrado.png" alt="Logo Elas do Cerrado"></div>
+        </div>
+        <div class="proj__corpo">
+          <div class="proj__tags"><span>Horta comunitária</span><span class="ods">ODS 2</span><span class="ods">ODS 3</span></div>
+          <h3>Elas do Cerrado</h3>
+          <p>Inclusão social e qualidade de vida de mulheres idosas com uma horta comunitária: segurança alimentar, renda e troca entre gerações. Criado no 2º Hackathon da Fundação Cargill (2026).</p>
+          <a class="mais" href="https://www.instagram.com/elasdocerrado/" target="_blank" rel="noopener">@elasdocerrado →</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="ja-atuamos rv">
+      <strong>Como já atuamos</strong>
+      <div class="chip-proj"><img src="assets/logo-fiandeiras.png" alt=""><div><b>Fiandeiras</b><small>bolsas de jeans reaproveitado · Dom Antônio</small></div></div>
+      <div class="chip-proj"><img src="assets/logo-ecomed.png" alt=""><div><b>Ecomed</b><small>ecoponto de medicamentos vencidos</small></div></div>
+    </div>
+  </div>
+</section>
+<svg class="onda" style="--cor:var(--mata);transform:scaleY(-1)" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50c240 30 420 40 640 10S1100 0 1440 40v50H0z"/></svg>
+
+<!-- ======================= IMPACTO ======================= -->
+<section class="secao" id="impacto">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <span class="rotulo rv">Nosso impacto</span>
+        <h2 class="rv" style="--i:1">O que a gente <em>mede</em>, a gente melhora.</h2>
+      </div>
+      <p class="lead rv" style="--i:2">Números do ciclo atual. <span class="editar-tag">EDITAR</span> troque pelos dados oficiais do relatório de impacto do time.</p>
+    </div>
+    <div class="impacto">
+      <!-- EDITAR: data-alvo = número final; data-sufixo = texto pequeno depois do número -->
+      <div class="num rv" style="--i:0"><b><span data-alvo="5">0</span></b><span>projetos sociais criados pelo time</span></div>
+      <div class="num rv" style="--i:1"><b><span data-alvo="3">0</span></b><span>comunidades parceiras em MS</span></div>
+      <div class="num rv" style="--i:2"><b><span data-alvo="2">0</span><sup>×</sup></b><span>semifinalista do Evento Nacional (ENEB)</span></div>
+      <div class="num rv editar" style="--i:3"><b><span data-alvo="0">0</span><sup>+</sup></b><span>vidas impactadas <span class="editar-tag">EDITAR</span></span></div>
+    </div>
+
+    <!-- linha do tempo (manual do membro) -->
+    <div style="margin-top:clamp(70px,9vw,110px)">
+      <span class="rotulo rv">Nossa história</span>
+      <h2 class="rv" style="--i:1;font-size:clamp(2rem,4vw,3rem)">De ações isoladas a <em>10 times</em>.</h2>
+    </div>
+    <div class="tempo" style="margin-top:2.5rem" tabindex="0" aria-label="Linha do tempo do time">
+      <div class="marco rv" style="--i:0"><div class="marco__ponto">15</div><h4>2015–2016</h4><p>Primeiras ações em Três Lagoas e Paranaíba. Participação no I Simpósio Nacional Enactus Brasil, em Fortaleza.</p></div>
+      <div class="marco rv" style="--i:1"><div class="marco__ponto">19</div><h4>2019–2020</h4><p>UFMS Paranaíba vai ao ENEB. A Reitoria conhece a Enactus Brasil e surge a ideia de um time por câmpus.</p></div>
+      <div class="marco rv" style="--i:2"><div class="marco__ponto">22</div><h4>2021–2022</h4><p>Nasce o programa de extensão. Abrem os times de Campo Grande, Chapadão do Sul, Coxim, Naviraí e Paranaíba.</p></div>
+      <div class="marco rv" style="--i:3"><div class="marco__ponto">24</div><h4>2023–2024</h4><p>Novos times em Aquidauana, Corumbá e Nova Andradina. Começa o processo em Três Lagoas e Ponta Porã.</p></div>
+      <div class="marco marco--ouro rv" style="--i:4"><div class="marco__ponto">25</div><h4>ENEB Belém</h4><p>Levamos Fiandeiras, Ecomed e PantaMel. Primeira semifinal da história do time.</p></div>
+      <div class="marco marco--ouro rv" style="--i:5"><div class="marco__ponto">26</div><h4>ENEB em casa</h4><p>Primeiro ENEB do Centro-Oeste, sediado em Campo Grande. PantaMel e Zuri no Top 16, pelo segundo ano seguido.</p></div>
+    </div>
+    <div class="premios">
+      <div class="premio rv" style="--i:0"><div class="premio__icone">💧</div><div><b>Prêmio GOTA</b><small>Amanco Wavin · ENEB 2026</small></div></div>
+      <div class="premio rv" style="--i:1"><div class="premio__icone">★</div><div><b>1º lugar · categoria Impacto</b><small>Sumitomo Chemical · ENEB 2026</small></div></div>
+      <div class="premio rv" style="--i:2"><div class="premio__icone">16</div><div><b>Top 16 da Rede Enactus Brasil</b><small>semifinalista em 2025 e 2026</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= O TIME / DIRETORIAS ======================= -->
+<svg class="onda" style="--cor:var(--mata)" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40c200-30 460-30 700 10s520 40 740-10v50H0z"/></svg>
+<section class="secao secao--mata" id="time" style="padding-top:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <span class="rotulo rv">Como o time se organiza</span>
+        <h2 class="rv" style="--i:1">Diretorias que <em>sustentam</em> os projetos.</h2>
+      </div>
+      <p class="lead rv" style="--i:2">Gestão horizontal e colaborativa. Cada membro atua em <strong>uma única frente</strong> (um projeto ou uma diretoria) para ninguém ficar sobrecarregado.</p>
+    </div>
+
+    <div class="diretorias rv rv--escala">
+      <div class="dir" style="--c:#2D5A3D"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="2"><path d="M100 10c50 0 90 40 90 90s-40 90-90 90"/><path d="M100 40c33 0 60 27 60 60s-27 60-60 60"/><path d="M100 70c16 0 30 14 30 30s-14 30-30 30"/></svg><h4>Marketing</h4><p>Identidade, redes e comunicação do time e dos projetos.</p></div>
+      <div class="dir" style="--c:#C4572C"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="2"><path d="M20 180C20 90 60 20 180 20"/><path d="M50 180c0-70 30-120 130-120"/><path d="M80 180c0-45 20-80 100-80"/></svg><h4>Financeiro</h4><p>Orçamento, prestação de contas e sustentabilidade financeira.</p></div>
+      <div class="dir" style="--c:#E8961B"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="2"><ellipse cx="100" cy="100" rx="90" ry="60"/><ellipse cx="100" cy="100" rx="60" ry="38"/><ellipse cx="100" cy="100" rx="30" ry="18"/></svg><h4>Gestão de Pessoas</h4><p>Processo seletivo, trainee, cultura e desenvolvimento.</p></div>
+      <div class="dir" style="--c:#3F7350"><svg viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="2"><path d="M10 100q45-70 90 0t90 0"/><path d="M10 130q45-70 90 0t90 0"/><path d="M10 70q45-70 90 0t90 0"/></svg><h4>Tecnologia e Inovação</h4><p>Hackathons, incubadora de ideias e soluções digitais.</p></div>
+    </div>
+
+    <div class="organiza">
+      <div class="rv" style="--i:0"><h4>Presidência</h4><p>Representação institucional, captação de parceiros e ponte com a Enactus Brasil e a UFMS. <span class="editar-tag">EDITAR</span> <span class="editar">nome da presidência do ciclo</span></p></div>
+      <div class="rv" style="--i:1"><h4>Vice-presidência</h4><p>Coordenação interna: acompanha diretorias e projetos e garante o alinhamento estratégico. <span class="editar-tag">EDITAR</span> <span class="editar">nome da vice-presidência</span></p></div>
+    </div>
+  </div>
+</section>
+<svg class="onda" style="--cor:var(--mata);transform:scaleY(-1)" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 60C300 20 520 70 760 40s460-40 680 0v50H0z"/></svg>
+
+<!-- ======================= DEPOIMENTOS ======================= -->
+<section class="secao">
+  <div class="wrap">
+    <span class="rotulo rv">Quem vive a Enactus</span>
+    <h2 class="rv" style="--i:1;margin-bottom:2.5rem">Vozes do time <em>e da comunidade</em>.</h2>
+    <!-- EDITAR: substitua pelos depoimentos reais (com autorização de uso).
+         Ideal: 1 da comunidade (destaque amarelo), 1 de membro, 1 do professor conselheiro. -->
+    <div class="depo">
+      <figure class="rv rv--esq editar">
+        <blockquote>Depoimento de alguém da comunidade parceira contando o que mudou com o projeto. Frase curta e verdadeira vale mais que texto longo.</blockquote>
+        <figcaption><span class="avatar">FC</span><div><b>Nome da pessoa</b><small>Comunidade Flor de Camalote · PantaMel</small></div></figcaption>
+      </figure>
+      <figure class="rv editar" style="--i:1">
+        <blockquote>O que você aprendeu na Enactus que não aprenderia em sala de aula?</blockquote>
+        <figcaption><span class="avatar">M</span><div><b>Nome do membro</b><small>Curso · Projeto Zuri</small></div></figcaption>
+      </figure>
+      <figure class="rv editar" style="--i:2">
+        <blockquote>Visão do(a) professor(a) conselheiro(a) sobre a evolução do time.</blockquote>
+        <figcaption><span class="avatar">P</span><div><b>Prof.(ª) Nome</b><small>Professor(a) conselheiro(a)</small></div></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PARCEIROS ======================= -->
+<section class="secao secao--papel" id="parceiros" style="padding-block:clamp(60px,8vw,100px)">
+  <div class="wrap" style="text-align:center">
+    <span class="rotulo rv">Quem caminha com a gente</span>
+    <h2 class="rv" style="--i:1;font-size:clamp(2rem,4vw,3rem)">Parceiros e apoiadores</h2>
+    <p class="lead rv" style="--i:2;margin:0 auto 2.5rem">Apoio financeiro, institucional e técnico que transforma ideia em ação. <span class="editar-tag">EDITAR</span> troque os nomes pelos logos oficiais (PNG transparente).</p>
+    <div class="parceiros">
+      <div class="parc rv" style="--i:0">UFMS<small>Universidade Federal de MS</small></div>
+      <div class="parc rv" style="--i:1">Enactus Brasil<small>rede nacional</small></div>
+      <div class="parc rv" style="--i:2">Fundação Cargill<small>apoio PantaMel · hackathons</small></div>
+      <div class="parc rv" style="--i:3">Fundect<small>apoio PantaMel</small></div>
+      <div class="parc rv" style="--i:4"><img src="assets/logo-amanco-wavin.png" alt="Amanco Wavin" style="border-radius:8px"></div>
+    </div>
+    <p class="rv" style="margin-top:2.5rem"><a class="btn btn--mata" href="mailto:enactusufmscg@gmail.com?subject=Quero%20apoiar%20a%20Enactus%20UFMS%20CG">Quero apoiar o time <span class="seta">→</span></a></p>
+  </div>
+</section>
+
+<!-- ======================= SEJA ENACTOR ======================= -->
+<section class="secao" id="seja-enactor">
+  <div class="wrap">
+    <div class="recruta">
+      <div>
+        <span class="rotulo rv" style="color:var(--mata)">Processo seletivo</span>
+        <h2 class="rv" style="--i:1">Seja <em>Enactor</em>.</h2>
+        <p class="lead rv" style="--i:2">Aberto a estudantes de <strong>qualquer curso</strong> da UFMS Campo Grande. Você aprende na prática liderança, gestão, comunicação e empreendedorismo social, e vê o resultado na vida das pessoas.</p>
+        <ol class="passos">
+          <li class="rv" style="--i:0">Inscrição<small>formulário online</small></li>
+          <li class="rv" style="--i:1">Seleção<small>dinâmica e entrevista</small></li>
+          <li class="rv" style="--i:2">Trainee<small>missões e desafios reais</small></li>
+          <li class="rv" style="--i:3">Membro<small>projeto ou diretoria</small></li>
+        </ol>
+        <!-- EDITAR: link do formulário do processo seletivo -->
+        <a class="btn btn--mata rv editar" style="--i:4" href="#" data-editar="link-formulario-psel">Quero me inscrever <span class="seta">→</span></a>
+      </div>
+      <div class="recruta__capi rv rv--dir">
+        <img src="assets/capivara-moletom.png" alt="Capivara mascote do time, de moletom com o símbolo Enactus">
+        <!-- EDITAR: período de inscrições -->
+        <div class="recruta__data editar">Inscrições<b>DD/MM a DD/MM</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= NEWSLETTER ======================= -->
+<svg class="onda" style="--cor:var(--mata)" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70C240 20 480 0 720 30s480 50 720 10v50H0z"/></svg>
+<section class="secao secao--mata" id="newsletter" style="padding-top:clamp(40px,6vw,70px)">
+  <div class="wrap news">
+    <div class="news__capi rv rv--esq"><img src="assets/capivara-terere.png" alt="Capivara tomando tereré" loading="lazy"></div>
+    <div>
+      <span class="rotulo rv">Newsletter do time</span>
+      <h2 class="rv" style="--i:1">Um tereré de notícias, <em>uma vez por mês</em>.</h2>
+      <ul class="news__promessa rv" style="--i:2">
+        <li>bastidores dos projetos</li><li>histórias das comunidades</li><li>editais e eventos</li><li>abertura do processo seletivo</li>
+      </ul>
+      <!--
+        EDITAR: conecte o formulário a um serviço de e-mail.
+        Opções gratuitas: Brevo, MailerLite, Substack (embed) ou Formspree.
+        Troque action="#" pela URL do serviço e remova o preventDefault no script lá embaixo.
+      -->
+      <form class="form rv" style="--i:3" action="#" method="post" id="form-news" novalidate>
+        <label class="sr" for="nome">Seu nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" autocomplete="given-name">
+        <label class="sr" for="email">Seu e-mail</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" required>
+        <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Assinar <span class="seta">→</span></button>
+        <label class="lgpd"><input type="checkbox" name="consentimento" required> <span>Concordo em receber e-mails da Enactus UFMS Campo Grande e sei que posso cancelar quando quiser. Seus dados não são compartilhados (LGPD). <a href="#" class="editar" style="color:var(--amarelo)">Política de privacidade</a></span></label>
+        <p class="form__ok" role="status">Pronto! Você vai receber a próxima edição. 🧉</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape__grid">
+      <div>
+        <span class="rodape__logo"><img src="assets/logo-enactus-ufms-cg.png" alt="Enactus UFMS Campo Grande"></span>
+        <p class="rodape__frase">Investindo em estudantes que empoderam pessoas, criamos um mundo melhor para todos nós.</p>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="mailto:enactusufmscg@gmail.com">enactusufmscg@gmail.com</a></li>
+          <li><a href="mailto:mkt.encg@gmail.com">mkt.encg@gmail.com</a> <small style="opacity:.6">(marketing)</small></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Endereço</h5>
+        <!-- EDITAR: confirme a sala/bloco onde o time se reúne -->
+        <ul><li>UFMS · Cidade Universitária</li><li>Av. Costa e Silva, s/n · Pioneiros</li><li>Campo Grande – MS, 79070-900</li><li class="editar" style="opacity:.8">Bloco/sala do time</li></ul>
+      </div>
+      <div>
+        <h5>Redes</h5>
+        <ul>
+          <li><a href="https://www.instagram.com/enufmscg/" target="_blank" rel="noopener">Instagram · @enufmscg</a></li>
+          <li><a href="https://br.linkedin.com/company/enactusufmscg" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.tiktok.com/@enufmscg" target="_blank" rel="noopener">TikTok · @enufmscg</a></li>
+          <li><a href="https://enactus.org.br/" target="_blank" rel="noopener">Enactus Brasil ↗</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape__base">
+      <span>© <span id="ano">2026</span> Time Enactus UFMS Campo Grande · Programa de extensão UFMS</span>
+      <span>Feito pelo time, com 🧉 e mel do Pantanal.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// nav: fundo ao rolar + menu mobile
+const nav=document.getElementById('nav'),btnMenu=nav.querySelector('.nav__menu');
+// menu: ganha fundo ao rolar; some ao descer e volta ao subir
+let ultimoY=scrollY;
+addEventListener('scroll',()=>{
+  const y=scrollY, desce=y>ultimoY;
+  nav.classList.toggle('rolou',y>30);
+  if(Math.abs(y-ultimoY)>6){                       // ignora tremidinhas do trackpad
+    nav.classList.toggle('some',desce&&y>120&&!nav.classList.contains('aberto'));
+    ultimoY=y;
+  }
+},{passive:true});
+nav.addEventListener('focusin',()=>nav.classList.remove('some'));   // quem navega por Tab sempre vê o menu
+btnMenu.addEventListener('click',()=>{const a=nav.classList.toggle('aberto');btnMenu.setAttribute('aria-expanded',a)});
+nav.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('aberto');btnMenu.setAttribute('aria-expanded',false)}));
+
+// revelar no scroll + contadores
+const reduz=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function conta(el){
+  const alvo=+el.dataset.alvo, t0=performance.now(), dur=1400;
+  if(reduz||!alvo){el.textContent=alvo.toLocaleString('pt-BR');return}
+  (function passo(t){const p=Math.min((t-t0)/dur,1),e=1-Math.pow(1-p,4);el.textContent=Math.round(alvo*e).toLocaleString('pt-BR');if(p<1)requestAnimationFrame(passo)})(t0);
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('visivel');e.target.querySelectorAll('[data-alvo]').forEach(conta);io.unobserve(e.target)}),{threshold:.18,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// newsletter (demonstração: remova o preventDefault quando ligar a um serviço real)
+const f=document.getElementById('form-news');
+f.addEventListener('submit',ev=>{
+  ev.preventDefault();
+  if(f.site.value) return;                       // honeypot anti-bot
+  if(!f.email.checkValidity()){f.email.focus();f.email.reportValidity();return}
+  if(!f.consentimento.checked){f.consentimento.reportValidity();return}
+  f.classList.add('enviado');
+});
+document.getElementById('ano').textContent=new Date().getFullYear();
+
+// ---------- ARCO FECHADO → FLECHA SOLTA → FOTO ABRE ----------
+(()=>{
+  const hero=document.querySelector('.hero'), visual=hero&&hero.querySelector('.hero__visual');
+  if(!visual||reduz) return;                      // sem animação: a foto já aparece aberta
+  document.documentElement.classList.add('js-arco');
+  const $=c=>visual.querySelector(c);
+  const foto=$('.seta-foto'), capi=$('.hero__capivara'), selo=$('.selo'), dica=$('.hero__dica'),
+        tudo=$('.o-tudo'), asa=$('.o-asa'), cauda=$('.o-cauda'), corpo=$('.o-corpo'), arco=$('.o-arco'),
+        corda=$('.o-corda'), madeiras=visual.querySelectorAll('.o-madeira'), flecha=$('.o-flecha');
+
+  // linha do tempo (0 → 1 ao longo do scroll do palco)
+  const T={puxa:[0,.34], voa:[.34,.48], abre:[.42,.86], capi:[.80,.94], selo:[.86,.99]};
+  const fase=(p,[a,b])=>Math.min(1,Math.max(0,(p-a)/(b-a)));
+  const easeIO=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2, easeOut=t=>1-Math.pow(1-t,3),
+        back=t=>{const c=1.6;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)};
+  const SETA=[[0,0],[70,0],[100,50],[70,100],[0,100],[15,50]];   // mesma forma do CSS
+  const mobile=matchMedia('(max-width:900px)');
+
+  function progresso(){
+    // quanto do "palco" já foi rolado: o container alto e o elemento que gruda
+    const cont=mobile.matches?visual.parentElement:hero, gruda=mobile.matches?visual:hero.querySelector('.hero__fixo');
+    const topoGruda=parseFloat(getComputedStyle(gruda).top)||0;
+    const r=cont.getBoundingClientRect(), curso=cont.offsetHeight-gruda.offsetHeight;
+    return curso>0?Math.min(1,Math.max(0,(topoGruda-r.top)/curso)):1;
+  }
+  function pinta(p){
+    // 1) puxar a corda (o arco enverga e treme perto do limite)
+    const pu=easeIO(fase(p,T.puxa)), soltou=p>T.puxa[1];
+    const d=p-T.puxa[1];
+    const nock=soltou?104+18*Math.exp(-d*28)*Math.sin(d*95):104-pu*62;
+    const treme=(!soltou&&pu>.82)?Math.sin(p*1400)*1.3:0;
+    corda.setAttribute('d',`M110 26 L${nock.toFixed(1)} 130 L110 234`);
+    const curva=(150+(soltou?0:pu*18)).toFixed(1);
+    madeiras.forEach(m=>m.setAttribute('d',`M110 26 Q${curva} 130 110 234`));
+    tudo.setAttribute('transform',`translate(${treme.toFixed(2)} 0)`);
+    // 2) a flecha voa para a direita e sai da tela
+    const v=easeOut(fase(p,T.voa));
+    const fx=soltou?v*900:-pu*62;
+    flecha.setAttribute('transform',`translate(${fx.toFixed(1)} 0)`);
+    flecha.style.opacity=v>.85?(1-(v-.85)/.15).toFixed(3):1;
+    // 3) o origami se desdobra e a foto abre a partir do centro
+    const o=easeOut(fase(p,T.abre));
+    asa.setAttribute('transform',`translate(${-80*o} ${55*o}) rotate(${-32*o} 70 195)`);
+    cauda.setAttribute('transform',`translate(${80*o} ${45*o}) rotate(${28*o} 220 145)`);
+    corpo.setAttribute('transform',`translate(150 130) scale(${1+.5*o}) translate(-150 -130)`);
+    [asa,cauda].forEach(g=>g.style.opacity=1-o);
+    corpo.style.opacity=1-Math.min(1,o*1.25);
+    arco.style.opacity=1-Math.min(1,o*1.6);
+    const q=o<=0?0:back(o);                                  // abre com um leve "passa e volta"
+    const pts=SETA.map(([x,y])=>`${(50+(x-50)*q).toFixed(2)}% ${(50+(y-50)*q).toFixed(2)}%`).join(',');
+    foto.style.setProperty('--clip',`polygon(${pts})`);
+    // 4) capivara espia e selo aparece
+    const c=back(fase(p,T.capi)), sl=back(fase(p,T.selo));
+    capi.style.opacity=Math.min(1,fase(p,T.capi)*2);
+    capi.style.transform=`translateY(${(1-c)*60}%) rotate(${(1-c)*-14}deg)`;
+    selo.style.opacity=Math.min(1,fase(p,T.selo)*2);
+    selo.style.transform=`scale(${Math.max(0,sl)})`;
+    dica.style.opacity=1-fase(p,[0,.08]);
+  }
+  // suaviza: o desenho persegue o scroll em vez de pular
+  let alvo=progresso(), atual=alvo, rodando=false;
+  function loop(){
+    atual+=(alvo-atual)*.12;
+    if(Math.abs(alvo-atual)<.0005) atual=alvo;
+    pinta(atual);
+    rodando=atual!==alvo; if(rodando) requestAnimationFrame(loop);
+  }
+  // tela baixa (notebook): se o hero for mais alto que a janela, gruda pela base
+  // para os botões continuarem visíveis durante a animação
+  const fixo=hero.querySelector('.hero__fixo');
+  const ajustaTopo=()=>{fixo.style.top=mobile.matches?'':Math.min(0,innerHeight-fixo.offsetHeight)+'px'};
+  const acorda=()=>{alvo=progresso(); if(!rodando){rodando=true;requestAnimationFrame(loop);}};
+  addEventListener('scroll',acorda,{passive:true});
+  addEventListener('resize',()=>{ajustaTopo();acorda()});
+  addEventListener('load',()=>{ajustaTopo();acorda()});
+  ajustaTopo();
+  pinta(atual);
+})();
+
+
+</script>
+</body>
+</html>
