@@ -1,5 +1,9 @@
 # Molde do site da Enactus UFMS Campo Grande
 
+> **Isto é um molde, uma proposta para o time aprovar. Não é o site oficial.**
+> A página tem um selo "Molde" no canto inferior esquerdo e está bloqueada para buscadores (`noindex`).
+> Quando o time aprovar e o conteúdo real entrar, apague os blocos marcados com `MOLDE` no `index.html`.
+
 Landing page de uma página só, em **um arquivo** (`index.html`) mais a pasta `assets/`.
 Não precisa instalar nada: abra o `index.html` no navegador.
 
