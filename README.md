@@ -40,7 +40,7 @@ apague o `ev.preventDefault();` no `<script>` do final do arquivo.
 
 ## De onde veio cada ideia
 
-Este molde junta o melhor da análise em `../../enactus-analise-design/ANALISE_DESIGN_ENACTUS.md`:
+Este molde junta o melhor da análise em [`enactus-analise-design/ANALISE_DESIGN_ENACTUS.md`](enactus-analise-design/ANALISE_DESIGN_ENACTUS.md):
 
 | Elemento | Inspiração |
 |---|---|
