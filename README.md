@@ -81,8 +81,3 @@ As cores ficam no topo do `<style>`, em `:root`. Para trocar a paleta, mude só 
 Os logos e as capivaras foram extraídos do *Manual do Membro 26/27*. As fotos do PantaMel vieram de
 `../fotos/` (autorização de imagem já confirmada, segundo o LEIA-ME de lá).
 As fotos do banco de imagens (`banco-de-imagens-nao-usar/`) **não** foram usadas.
-
-## Publicar de graça
-
-Arraste a pasta `site-molde` para **Netlify Drop** (app.netlify.com/drop) ou suba num repositório
-e ative o **GitHub Pages**. Se for usar domínio próprio, `enactusufmscg.com.br` segue o padrão da UFMG.
